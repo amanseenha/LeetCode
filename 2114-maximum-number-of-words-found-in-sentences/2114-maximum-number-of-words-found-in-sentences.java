@@ -2,7 +2,7 @@ class Solution {
     public int mostWordsFound(String[] sentences) {
         int maxWords=0;
         for(int i=0;i<sentences.length;i++){
-            int words=0;
+            int words=1;
            for(int j=0;j<sentences[i].length();j++){
                 if(sentences[i].charAt(j)==' ')
                 {
@@ -13,6 +13,6 @@ class Solution {
                 maxWords=words;
             }
         }
-        return maxWords+1;
+        return maxWords;
     }
 }
