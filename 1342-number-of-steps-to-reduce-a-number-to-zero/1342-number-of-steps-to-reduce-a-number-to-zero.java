@@ -6,7 +6,7 @@ class Solution {
                 num/=2;
                 count++;
             }
-            if(num%2!=0){
+            else{
                 num-=1;
                 count++;
             }
