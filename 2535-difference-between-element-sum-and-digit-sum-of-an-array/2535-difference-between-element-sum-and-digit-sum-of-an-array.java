@@ -5,6 +5,10 @@ class Solution {
             sum+=nums[i];
         }
         for(int j=0;j<nums.length;j++){
+            if(nums[j]==0){
+                digiSum+=0;
+                break;
+            }
             int n=nums[j];
             while(n>0){
                 digiSum += n%10;
