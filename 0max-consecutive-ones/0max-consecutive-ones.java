@@ -9,7 +9,7 @@ class Solution {
                 }
                 i++;
             }
-            else if(nums[i]==0){
+            else{
                 count=0;
                 i++;
             }
