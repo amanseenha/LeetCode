@@ -15,8 +15,6 @@ class Solution {
         if(reverse.equals(str)){
             return true;
         }
-        System.out.println(str);
-        System.out.println(reverse);
         return false;
     }
 }
