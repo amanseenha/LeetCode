@@ -1,19 +1,15 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
-        return subSequenceGenerator(s, t, 0, 0);
-    }
-    public boolean subSequenceGenerator(String s, String t, int sIndex, int tIndex) {
-        if (sIndex == s.length()) {
-            return true;
+        int sIndex = 0;
+        int tIndex = 0;
+        
+        while (sIndex < s.length() && tIndex < t.length()) {
+            if (s.charAt(sIndex) == t.charAt(tIndex)) {
+                sIndex++;
+            }
+            tIndex++;
         }
-        if (tIndex == t.length()) {
-            return false;
-        }
-
-        if (s.charAt(sIndex) == t.charAt(tIndex)) {
-            return subSequenceGenerator(s, t, sIndex + 1, tIndex + 1);
-        } else {
-            return subSequenceGenerator(s, t, sIndex, tIndex + 1);
-        }
+        
+        return sIndex == s.length();
     }
 }
