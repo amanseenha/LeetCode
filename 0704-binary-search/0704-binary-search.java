@@ -10,6 +10,7 @@ class Solution {
       } else if (nums[m] == target) {
         return m;
       }
+        System.gc();
     }
     return -1;
     }
