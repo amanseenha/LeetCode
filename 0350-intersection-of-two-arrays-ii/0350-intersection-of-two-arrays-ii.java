@@ -1,27 +1,29 @@
+import java.util.*;
+
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        ArrayList<Integer> result = new ArrayList<>();
-        int i = 0;
-        int j = 0;
-        while(i< nums1.length && j< nums2.length){
-            if(nums1[i]==nums2[j]){
-                result.add(nums1[i]);
-                i++;
-                j++;
-            }
-            else if(nums1[i] < nums2[j]){
-                i++;
-            }
-            else j++;
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        
+        // Count the frequency of each element in nums1
+        for (int num : nums1) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
-        int n = result.size();
-        int[] arr = new int[n];
-        int index = 0;
-        for(int v: result){
-            arr[index++] = v;
+        
+        List<Integer> resultList = new ArrayList<>();
+        
+        // Iterate through nums2 and check for common elements
+        for (int num : nums2) {
+            if (frequencyMap.containsKey(num) && frequencyMap.get(num) > 0) {
+                resultList.add(num);
+                frequencyMap.put(num, frequencyMap.get(num) - 1);
+            }
         }
-        return arr;
+        
+        int[] result = new int[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++) {
+            result[i] = resultList.get(i);
+        }
+        
+        return result;
     }
 }
