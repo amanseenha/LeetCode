@@ -1,22 +1,22 @@
-public class Solution {
-    public boolean repeatedSubstringPattern(String str) {
-        for (int i = 0; i < str.length() / 2; i ++) {
-            int count = i + 1;
-            if (str.length() % count != 0) {
-                continue;
-            }
-            boolean same = true;
-            for (int k = count; k + count <= str.length() && same; k+=count) {
-                for (int j = 0; j <= i && same; j ++) {
-                    if (str.charAt(j) != str.charAt(j + k)) {
-                        same = false;
-                    }
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        int n = s.length();
+        
+        for (int len = 1; len <= n / 2; len++) {
+            if (n % len == 0) {
+                String substring = s.substring(0, len);
+                StringBuilder repeated = new StringBuilder();
+                
+                for (int i = 0; i < n / len; i++) {
+                    repeated.append(substring);
+                }
+                
+                if (repeated.toString().equals(s)) {
+                    return true;
                 }
             }
-            if (same == true) {
-                return true;
-            }
         }
+        
         return false;
     }
 }
