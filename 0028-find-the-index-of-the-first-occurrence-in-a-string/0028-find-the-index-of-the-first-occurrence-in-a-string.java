@@ -1,13 +1,14 @@
 class Solution {
     public int strStr(String haystack, String needle) {
+        return helper(haystack, needle, 0);
+    }
+    public int helper(String haystack, String needle, int index){
         if(needle.length() > haystack.length()){
             return -1;
         }
-        for(int i=0; i<haystack.length(); i++){
-            if(haystack.substring(i).startsWith(needle)){
-                return i;
-            }
+        if(haystack.startsWith(needle)){
+            return index;
         }
-        return -1;
+        else return helper(haystack.substring(1), needle, index+1);
     }
 }
