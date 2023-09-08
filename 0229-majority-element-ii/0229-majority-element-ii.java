@@ -21,15 +21,15 @@ class Solution {
             }
         }
         ArrayList<Integer> list = new ArrayList<>();
-        int minAppearance = (int)Math.floor(len/3)+1;
+        int minAppearance = (len/3);
         cnt1 = 0;
         cnt2 = 0;
         for(int i : nums){
             if(i == el1) cnt1++;
             else if(i == el2) cnt2++;
         }
-        if(cnt1>=minAppearance) list.add(el1);
-        if(cnt2>=minAppearance) list.add(el2);
+        if(cnt1>minAppearance) list.add(el1);
+        if(cnt2>minAppearance) list.add(el2);
         return list;
     }
 }
