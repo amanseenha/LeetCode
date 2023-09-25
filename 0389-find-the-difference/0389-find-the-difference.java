@@ -1,14 +1,12 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        int expAscii = 0;
-        int actualAscii = 0;
-        for(int i=0; i<s.length(); i++){
-            expAscii += (int)s.charAt(i);
+        int sum = 0;
+        for(int i: t.toCharArray()){
+            sum+=i;
         }
-        for(int i=0; i<t.length(); i++){
-            actualAscii += (int)t.charAt(i);
+        for(int i: s.toCharArray()){
+            sum-=i;
         }
-        char ch = (char)(actualAscii - expAscii);
-        return ch;
+        return (char)sum;
     }
 }
