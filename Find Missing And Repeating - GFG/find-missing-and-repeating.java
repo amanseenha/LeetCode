@@ -27,22 +27,27 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solve {
     int[] findTwoElement(int arr[], int n) {
+        // code here
         int[] ans = new int[2];
-        long actualSum = 0, actualSquareSum = 0;
-        for(int i: arr){
-            actualSum += i;
-            actualSquareSum += (long)i * i;
+        long len = (long)n;
+        long S = 0, S2 = 0;
+        long SN = (len*(len+1))/2;
+        long S2N = (len*(len+1)*(2*len+1))/6;
+        for(int i=0; i<len; i++){
+            S += arr[i];
+            S2 += (long)arr[i]*arr[i];
         }
-        long sum = (long)n * (n + 1) / 2;
-        long squareSum = (long)n * (n + 1) * (2 * n + 1) / 6;
-        long val1 = actualSum - sum;
-        long val2 = actualSquareSum - squareSum;
-        long A = (val2 - val1 * val1) / (2 * val1);
-        long B = A + val1;
+        long val1 = S - SN;
+        long val2 = S2 - S2N;
+        val2 = val2/val1;
+        long B = (val1+val2)/2;
+        long A = B-val1;
         ans[0] = (int)B;
         ans[1] = (int)A;
         return ans;
