@@ -20,7 +20,7 @@ class Solution {
     int divisonSum(int[] nums, int mid){
         int sum = 0;
         for(int i=0; i<nums.length; i++){
-            sum += Math.ceil((double)nums[i]/(double)mid);
+            sum += ( ( (double)nums[i] + (double)mid - 1) / (double)mid );
         }
         return sum;
     }
