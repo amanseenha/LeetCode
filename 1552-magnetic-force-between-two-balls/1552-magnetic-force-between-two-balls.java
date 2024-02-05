@@ -2,7 +2,7 @@ class Solution {
     public int maxDistance(int[] position, int m) {
         int n = position.length;
         Arrays.sort(position);
-        int low = 1, high = position[n-1] - position[0];
+        int low = 1, high = position[n-1]/(m-1);
         while(low<=high){
             int mid = (low+high)/2;
             if(canWePlace(position, mid, m)==true){
